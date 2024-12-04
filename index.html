@@ -6,16 +6,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <style>
-body {font-family: "Oxygen";}
+body {
+    font-family: "Oxygen";
+}
 
-h2 {letter-spacing: 3px;}
+html {
+    scroll-behavior: smooth;
+}
+
+h2 {
+    letter-spacing: 3px;
+}
 
 @media screen and (max-width: 600px) {
     .w3-hide-small {
-    display: block !important;
+        display: block !important;
     }
 }
+
+.about {
+    position: relative;
+    top: 100px; /* Adjust percentage to lower the text */
+    transform: translateY(20%); /* Use this for precise adjustment */
+    color: black;
+    text-align: center;
+}
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Increase container size to make the image larger */
+    margin: auto; /* Center the container */
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.button {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 2px 38px;
+    background-color: #00a2ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 8px;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 10;
+    top: 0;
+    padding-top: 320px;
+    width: 38%;
+    height: 100%;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 5px;
+    width: 40%; /* Width of the modal */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -23,7 +107,7 @@ h2 {letter-spacing: 3px;}
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="#home" class="w3-bar-item w3-button">PhotoAuth</a>
+    <a href="#home" class="w3-bar-item w3-button">Photo Authenticity</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">About</a>
@@ -34,10 +118,8 @@ h2 {letter-spacing: 3px;}
 </div>
 
 <!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-    <h1 class="w3-xxlarge">PhotoAuth</h1>
-  </div>
+<header class="w3-display-container w3-content w3-wide" id="home" style="max-width:1600px;min-width:500px;position:relative;">
+  <img src="header_image.jpg" alt="PhotoAuth" class="header-img">
 </header>
 
 <!-- Page content -->
@@ -46,12 +128,12 @@ h2 {letter-spacing: 3px;}
   <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="photos_authenticity.png" class="w3-round w3-image" alt="Photo Authenticity" width="600" height="750">
+     <img src="photo.png" class="w3-round w3-image" alt="Photo Authenticity" width="600" height="750">
     </div>
 
-    <div class="w3-col m6 w3-padding-64">
-      <h2 class="w3-center">"Bringing Transparency to Social Media"</h2>
-      <p class="w3-large w3-center">PhotoAuth is a groundbreaking tool designed to promote authenticity across social media platforms. Integrated with apps like Instagram, our technology detects whether images are edited or photoshopped, encouraging users to share genuine content.</p>
+    <div class="about">
+      <h2 class="w3-center">Bringing Transparency to Social Media</h2>
+      <p class="w3-large">PhotoAuth is a groundbreaking tool designed to stop sharing fake photos and lifestyles. It promotes authenticity across different social media platforms. Integrated with apps like Instagram, our technology detects whether images are edited or photoshopped, encouraging users to share genuine content. Any edited posts discovered that hasn't been marked, will result in warnings or ban of the user.</p>
     </div>
   </div>
 
@@ -72,7 +154,15 @@ h2 {letter-spacing: 3px;}
     </div>
 
     <div class="w3-col l6 w3-padding-64">
-      <img src="social_media_integration.png" class="w3-round w3-image" alt="Features" style="width:100%;">
+      <div class="container">
+        <img src="edited_photo.jpg" class="w3-round image" alt="Features">
+        <button class="button" onclick="openModal()">Edited</button><i class="fas fa-edit"></i></button>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>This photo has been labeled as edited to enhance its overall appearance.</p>
+      </div>
     </div>
   </div>
 
@@ -80,20 +170,52 @@ h2 {letter-spacing: 3px;}
 
   <!-- Contact Section -->
   <div class="w3-container w3-padding-64" id="contact">
-    <h1>Get in Touch</h1><br>
+    <h1>Contact Us</h1><br>
     <p>Interested in integrating PhotoAuth with your platform or have questions? Reach out to us, and we'll be happy to assist.</p>
-    <div class="w3-row">
-      <div class="w3-half w3-padding-large">
-        <h4>Email Us</h4>
-        <p>support@photoauth.com</p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i> New York, NY<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +1 (800) 123-4567<br>
+        <i class="fa fa-envelope" style="width:30px"></i> Email: support@photoauth.com<br>
       </div>
-      <div class="w3-half w3-padding-large">
-        <h4>Call Us</h4>
-        <p>+1 (800) 123-4567</p>
+      <div class="w3-col m6">
+        <form action="/action_page.php" method="post">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="email" placeholder="Email" required name="Email">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject">
+          <textarea class="w3-input w3-border" placeholder="Message" required name="Message" style="margin-top:8px"></textarea>
+          <button class="w3-button w3-black w3-right w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </form>
       </div>
     </div>
   </div>
 
 </div>
+<script>
+  // JavaScript to control the modal
+  function openModal() {
+      document.getElementById("myModal").style.display = "block";
+  }
+  
+  function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+  }
+  
+  // Optional: Close the modal if the user clicks outside of it
+  window.onclick = function(event) {
+      var modal = document.getElementById("myModal");
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>  
 </body>
 </html>

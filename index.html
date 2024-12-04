@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Photo Authenticity</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Oxygen";}
+
+h2 {letter-spacing: 3px;}
+
+@media screen and (max-width: 600px) {
+    .w3-hide-small {
+    display: block !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">PhotoAuth</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#features" class="w3-bar-item w3-button">Features</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge">PhotoAuth</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="photos_authenticity.png" class="w3-round w3-image" alt="Photo Authenticity" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-64">
+      <h2 class="w3-center">"Bringing Transparency to Social Media"</h2>
+      <p class="w3-large w3-center">PhotoAuth is a groundbreaking tool designed to promote authenticity across social media platforms. Integrated with apps like Instagram, our technology detects whether images are edited or photoshopped, encouraging users to share genuine content.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Features Section -->
+  <div class="w3-row w3-padding-64" id="features">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Features</h1><br>
+      <h4>AI-Powered Detection</h4>
+      <p class="w3-text-grey">Our advanced AI algorithms analyze images to determine if they've been edited or manipulated. This ensures that unmarked edited photos are identified, promoting honesty among users.</p><br>
+
+      <h4>User Declaration</h4>
+      <p class="w3-text-grey">When uploading a photo, users are prompted to declare whether the image has been edited. This fosters a culture of transparency and trust within the community.</p><br>
+
+      <h4>Platform Integration</h4>
+      <p class="w3-text-grey">PhotoAuth seamlessly integrates with multiple social media platforms, making it easy for users and developers to adopt. Our API allows for smooth implementation and consistent user experience.</p><br>
+    </div>
+
+    <div class="w3-col l6 w3-padding-64">
+      <img src="social_media_integration.png" class="w3-round w3-image" alt="Features" style="width:100%;">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1>Get in Touch</h1><br>
+    <p>Interested in integrating PhotoAuth with your platform or have questions? Reach out to us, and we'll be happy to assist.</p>
+    <div class="w3-row">
+      <div class="w3-half w3-padding-large">
+        <h4>Email Us</h4>
+        <p>support@photoauth.com</p>
+      </div>
+      <div class="w3-half w3-padding-large">
+        <h4>Call Us</h4>
+        <p>+1 (800) 123-4567</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
